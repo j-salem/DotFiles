@@ -19,12 +19,12 @@ export MANPATH
 #export TERM="xterm-256color"
 
 if [ "$TERM" != "dumb" ]; then
-        export LS_OPTIONS='--color=always'
-		if [[ "$OSTYPE" == "darwin"* ]]; then
-			eval `gdircolors ~/.dir_colors`
-		elif [[ "$OSTYPE" == "linux-gnu" ]]; then
-			eval `dircolors ~/.dir_colors`
-		fi
+	export LS_OPTIONS='--color=always'
+	if [[ "$OSTYPE" == "darwin"* ]]; then
+		eval `gdircolors ~/.dir_colors`
+	elif [[ "$OSTYPE" == "linux-gnu" ]]; then
+		eval `dircolors ~/.dir_colors`
+	fi
 fi
 
 # ntensity        0       1       2       3       4       5       6       7
