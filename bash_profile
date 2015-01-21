@@ -20,7 +20,7 @@ export MANPATH
 
 if [ "$TERM" != "dumb" ]; then
         export LS_OPTIONS='--color=always'
-		if [[ "$OSTYPE" == "darwin"*]]; then
+		if [[ "$OSTYPE" == "darwin"* ]]; then
 			eval `gdircolors ~/.dir_colors`
 		elif [[ "$OSTYPE" == "linux-gnu" ]]; then
 			eval `dircolors ~/.dir_colors`
