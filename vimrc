@@ -8,6 +8,7 @@ set tabstop=4			" tabs are 4 columns wide
 set shiftwidth=4		" auto indents are 4 columns
 set softtabstop=4		" more tab settings
 set noexpandtab			" Tabs are actually tabs...
+set splitbelow			" :split puts new file below 
 syntax enable           " syntax highlighting
 filetype plugin on      " use the file type plugins
 filetype indent on
@@ -27,7 +28,7 @@ if filereadable($HOME."/.vim/autoload/pathogen.vim")
 endif
 
 " Custom Highlighting
-		highlight MyNotes gui=bold,underline guifg=green cterm=bold,underline term=bold,underline ctermfg=green
+highlight MyNotes gui=bold,underline guifg=green cterm=bold,underline term=bold,underline ctermfg=green
 
 highlight MyWarning gui=bold guifg=white guibg=red cterm=bold,underline term=bold,underline ctermfg=white ctermbg=red
 
@@ -35,13 +36,16 @@ highlight clear Todo " ignore default Todo group and use my own
 
 highlight Todo gui=bold,underline guifg=yellow cterm=bold,underline term=bold,underline ctermfg=yellow
 
+highlight MyDebug gui=bold,underline guifg=cyan cterm=bold,underline term=bold,underline ctermfg=cyan
+
 " Matches words to custom highlighting groups
 if has("autocmd")
    " Highlight TODO, FIXME, NOTE, etc.
 	if v:version > 701
 		autocmd Syntax * call matchadd('Todo','\W\zs\(TODO\|FIXME\|CHANGED\|XXX\|BUG\|HACK\)')
-		autocmd Syntax * call matchadd('MyNotes','\W\zs\(NOTE\|INFO\|IDEA\)')
+		autocmd Syntax * call matchadd('MyNotes','\W\zs\(NOTE\|INFO\|IDEA\|PRE\)')
 		autocmd Syntax * call matchadd('MyWarning','\W\zs\(WARNING\|WARN\)')
+		autocmd Syntax * call matchadd('MyDebug', '\W\zs\(DEBUG\)')
 	endif
 endif
 
